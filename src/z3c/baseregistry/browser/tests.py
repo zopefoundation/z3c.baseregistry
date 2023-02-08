@@ -42,13 +42,13 @@ class IExample(zope.interface.Interface):
 
 
 @zope.interface.implementer(IExample)
-class Example(object):
+class Example:
 
     def __init__(self, name):
         self.name = name
 
     def __repr__(self):
-        return '<%s %r>' % (self.__class__.__name__, self.name)
+        return '<{} {!r}>'.format(self.__class__.__name__, self.name)
 
 
 example1 = Example('example1')
@@ -105,11 +105,11 @@ class ManagementViewSelector(BrowserView):
         redirect_url = item['action']
         if not redirect_url.lower().startswith(('../', 'javascript:', '++')):
             self.request.response.redirect(redirect_url)
-            return u''
+            return ''
         raise AssertionError("Should not get here")  # pragma: no cover
 
 
-class LoginLogout(object):
+class LoginLogout:
     # Dummy implementation of zope.app.security.browser.auth.LoginLogout
 
     def __call__(self):

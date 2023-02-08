@@ -55,7 +55,7 @@ class BaseComponentsVocabulary(SimpleVocabulary):
         # add the base registry
         terms.append(SimpleTerm(globalregistry.base, BASENAME))
 
-        super(BaseComponentsVocabulary, self).__init__(terms)
+        super().__init__(terms)
 
 
 class IComponentsBases(zope.interface.Interface):

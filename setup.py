@@ -57,7 +57,7 @@ setup(
     name="z3c.baseregistry",
     version='3.0.dev0',
     author="Stephan Richter, Roger Ineichen and the Zope Community",
-    author_email="zope-dev@zope.org",
+    author_email="zope-dev@zope.dev",
     description="Manage IComponents instances using Python code and ZCML.",
     long_description=(
         read('README.rst')
@@ -95,6 +95,7 @@ setup(
     include_package_data=True,
     package_dir={'': 'src'},
     namespace_packages=['z3c'],
+    python_requires='>=3.7',
     extras_require={
         'test': tests_require,
         'zmi': [
