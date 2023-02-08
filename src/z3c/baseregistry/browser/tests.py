@@ -18,20 +18,19 @@
 __docformat__ = "reStructuredText"
 import doctest
 import unittest
+
 import zope.component
 import zope.interface
-
-from zope.testing import renormalizing
 from zope.app.wsgi.testlayer import BrowserLayer
+from zope.browsermenu.menu import getFirstMenuItem
+from zope.interface import implementer
+from zope.publisher.browser import BrowserView
+from zope.publisher.interfaces.browser import IBrowserPublisher
 from zope.testbrowser.wsgi import TestBrowserLayer
+from zope.testing import renormalizing
 
 from z3c.baseregistry import baseregistry
 from z3c.baseregistry import browser as z3c_browser
-
-from zope.interface import implementer
-from zope.browsermenu.menu import getFirstMenuItem
-from zope.publisher.browser import BrowserView
-from zope.publisher.interfaces.browser import IBrowserPublisher
 
 
 custom = baseregistry.BaseComponents(
@@ -134,9 +133,7 @@ def test_suite():
             'addBasesSelection': addBasesSelection,
             'getRootFolder': Z3CRegistryLayer.getRootFolder,
         },
-        optionflags=(renormalizing.IGNORE_EXCEPTION_MODULE_IN_PYTHON2
-                     | doctest.ELLIPSIS
-                     | doctest.NORMALIZE_WHITESPACE),
+        optionflags=doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE,
         checker=renormalizing.RENormalizing(),
     )
     readme.layer = Z3CRegistryLayer

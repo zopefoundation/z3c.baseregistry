@@ -15,11 +15,11 @@
 
 """
 __docformat__ = "reStructuredText"
-import zope.interface
 import zope.component.globalregistry
 import zope.component.hooks
 import zope.configuration.config
 import zope.configuration.fields
+import zope.interface
 from zope.configuration.exceptions import ConfigurationError
 
 
