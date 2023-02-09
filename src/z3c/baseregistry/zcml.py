@@ -15,11 +15,11 @@
 
 """
 __docformat__ = "reStructuredText"
-import zope.interface
 import zope.component.globalregistry
 import zope.component.hooks
 import zope.configuration.config
 import zope.configuration.fields
+import zope.interface
 from zope.configuration.exceptions import ConfigurationError
 
 
@@ -27,12 +27,12 @@ class IRegisterInDirective(zope.interface.Interface):
     """Use the specified registry for registering the contained components."""
 
     registry = zope.configuration.fields.GlobalObject(
-        title=u"Registry",
-        description=u"Python path to the registry to use.",
+        title="Registry",
+        description="Python path to the registry to use.",
         required=True)
 
 
-class ActionsProxy(object):
+class ActionsProxy:
     """A proxy object for the actions list to decorate the incoming actions."""
 
     original = None
@@ -86,7 +86,7 @@ class ActionsProxy(object):
         return getattr(self.original, name)
 
 
-class FakeBaseRegistrySite(object):
+class FakeBaseRegistrySite:
     """This a minimal fake Site, the only responsibility it has
     is to store our registry as a SiteManager and return it later.
     This is needed to fool siteinfo via setSite, zope.component.zcml.handler
@@ -122,7 +122,7 @@ class RegisterIn(zope.configuration.config.GroupingContextDecorator):
             raise ConfigurationError(
                 'Nested ``registerIn`` directives are not permitted.')
 
-        super(RegisterIn, self).__init__(context, **kw)
+        super().__init__(context, **kw)
         self.registry = registry
         self.actions = ActionsProxy(context.actions, registry)
 

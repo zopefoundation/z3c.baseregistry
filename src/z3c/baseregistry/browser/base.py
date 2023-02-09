@@ -17,18 +17,16 @@
 
 __docformat__ = "reStructuredText"
 import zope.interface
-
 from zope import component
 from zope.component import globalregistry
+from zope.formlib import form
+from zope.i18nmessageid import ZopeMessageFactory as _
 from zope.interface.interfaces import IComponents
-
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-
-from zope.i18nmessageid import ZopeMessageFactory as _
-from zope.formlib import form
 from zope.security.proxy import removeSecurityProxy
 from zope.site.interfaces import ILocalSiteManager
+
 
 BASENAME = _('-- Global Base Registry --')
 PARENTNAME = _('-- Parent Local Registry --')
@@ -57,7 +55,7 @@ class BaseComponentsVocabulary(SimpleVocabulary):
         # add the base registry
         terms.append(SimpleTerm(globalregistry.base, BASENAME))
 
-        super(BaseComponentsVocabulary, self).__init__(terms)
+        super().__init__(terms)
 
 
 class IComponentsBases(zope.interface.Interface):

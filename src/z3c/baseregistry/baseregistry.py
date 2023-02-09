@@ -29,7 +29,7 @@ class BaseComponents(globalregistry.BaseGlobalComponents):
 
     def __init__(self, parent, *args, **kw):
         self.__parent__ = parent
-        super(BaseComponents, self).__init__(*args, **kw)
+        super().__init__(*args, **kw)
 
     def __reduce__(self):
         # Global site managers are pickled as global objects

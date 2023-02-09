@@ -14,9 +14,10 @@
 """Base Components test setup."""
 import doctest
 import unittest
+
+from zope.testing import module
 from zope.testing import renormalizing
 from zope.testing.cleanup import CleanUp
-from zope.testing import module
 
 
 def setUp(test):
@@ -34,9 +35,7 @@ def test_suite():
         doctest.DocFileSuite(
             '../README.rst',
             setUp=setUp, tearDown=tearDown,
-            optionflags=(doctest.NORMALIZE_WHITESPACE
-                         | doctest.ELLIPSIS
-                         | renormalizing.IGNORE_EXCEPTION_MODULE_IN_PYTHON2),
+            optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS,
             checker=renormalizing.RENormalizing(),
         ),
     ))
