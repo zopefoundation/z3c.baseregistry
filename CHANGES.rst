@@ -5,15 +5,11 @@
 3.0 (unreleased)
 ================
 
-- Add support for Python 3.10, 3.11.
+- Drop support for Python 2.7, 3.4, 3.5, 3.6.
 
-- Drop support for Python 2.7, 3.5, 3.6.
-
-- Add support for Python 3.8 and 3.9.
+- Add support for Python 3.8, 3.9, 3.10, 3.11.
 
 - Make tests compatible with ``zope.component >= 5``.
-
-- Drop support for Python 3.4.
 
 
 2.2.0 (2018-10-19)
